@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-dark cyan darken-3 fixed-top">
+        <a class="navbar-brand" href="#"><h2>La Boulangerie de Mélody</h2></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation" (click)="toggleCollapsed()">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="container">
+        <div id="navbarResponsive" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
+            <div class="navbar-nav" *ngIf="isLoggedIn">
+                <ul class="navbar-nav">                
+                        <a class="nav-link active" href="/home">Liste
+                        </a>
+                        <a class="nav-link active" href="/ListAllValidate"  routerLink="ListAllValidate">Liste des ordres valides
+                        </a>
+                        <a class="nav-link active" href="/listOrderByUser"  routerLink="listOrderByUser">Liste par utilisateur
+                        </a>
+                </ul>
+            </div>
+            <div class="navbar-nav" *ngIf="!isLoggedIn">
+                <ul class="navbar-nav">                
+                        <a class="nav-link active" href="/home">Liste
+                        </a>
+                        <a class="nav-link active" href="/register"  routerLink="register">Inscription
+                        </a>
+                        <a class="nav-link active" href="/login"  routerLink="login">Connection
+                        </a>
+                        <a class="nav-link active" href="/ListAllValidate"  routerLink="ListAllValidate">Liste des ordres valides
+                        </a>
+                        <a class="nav-link active" href="/listOrderByUser"  routerLink="listOrderByUser">Liste par utilisateur
+                        </a>
+                </ul>
+            </div>
+        </div>
+        </div>
+</nav>

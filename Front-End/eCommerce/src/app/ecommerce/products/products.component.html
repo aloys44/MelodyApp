@@ -1,0 +1,37 @@
+<div>
+    <div class="row card-deck">
+        <div class="row card-deck">
+            <div class="col-lg-4 col-md-6 mb-4" *ngFor="let order of productOrders">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h4>{{order.product.name}}</h4>
+                    </div>
+                    <div class="card-body">
+                        <a href="#"><img class="card-img-top" src={{order.product.pictureUrl}} 
+                            alt=""></a>
+                        <div class="espace_2">
+                        <h5 class="card-title">{{order.product.price}} €</h5>
+                        </div>
+                        <div class="row" *ngIf="isLoggedIn">
+                            <div class="col-5 padding-0" *ngIf="!isProductSelected(order.product)">
+                                <input type="number" min="0" class="form-control" 
+                                    [(ngModel)]=order.quantity>
+                            </div>
+                            <div class="col-4 padding-0" *ngIf="!isProductSelected(order.product)">
+                                <button class="btn btn-primary" (click)="addToCart(order)"
+                                        [disabled]="order.quantity <= 0">Ajouter au panier
+                                </button>
+                            </div>
+                            <div class="col-12" *ngIf="isProductSelected(order.product)">
+                                <button class="btn btn-primary btn-block"
+                                        (click)="removeFromCart(order)">Remove From Cart
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="!isLoggedIn">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>    

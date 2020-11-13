@@ -1,0 +1,13 @@
+
+<div class="espace">
+    <ul class="list-group"  *ngFor="let order of productOrders">
+        <li class="list-group-item">{{order.quantity}}</li>
+        <li class="list-group-item">{{order.user}}</li>
+    </ul>
+
+        <ul class="list-group"  *ngFor="let product of products">
+            <li class="list-group-item">{{product.id}}</li>
+            <li class="list-group-item">{{product.name}}</li>
+
+    </ul>
+</div>
